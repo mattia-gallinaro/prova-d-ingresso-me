@@ -8,9 +8,9 @@ namespace Calcola_Scelta_Macchinario
 {
     class Scelta
     {
-        public void Scelta_Macchinario(Caldaia caldaia_cond, Caldaia caldaia_trad, )
+        public void Scelta_Macchinario(Caldaia caldaia_cond, Caldaia caldaia_trad, Elettrico stufa, Elettrico pompa_buona, Elettrico pompa_economica)
         {
-
+            double value = 0;
         }
     }
 }

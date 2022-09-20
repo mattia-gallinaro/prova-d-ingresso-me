@@ -9,20 +9,22 @@ namespace Calcola_Scelta_Macchinario
     class Caldaia :  Macchinario
     {
         //public 
-        public Caldaia(double rendimento, double costo_Iniziale)
+        public Caldaia(double rendimento, double costo_Iniziale, double prezzo, double costo_tot)
         {
             this.rendimento = rendimento;
-            this.costo_Iniziale = costo_Iniziale;
+            this.prezzo = costo_Iniziale;
             consumo = 0;
+            costo_tot = 0;
         }
 
-        public override void Calcola_Consumo(double kWh, double Smc)
+        public override void Calcola_Consumo(double kWh, double Smc, double potere_calorifero)
         {
-            consumo = kWh / (10, 7 * rendimento) + Smc;
+            consumo = kWh / (potere_calorifero * rendimento) + Smc;
         }
-        public override double Costo_Totale(Elettrico materia)
+        public override void Costo_Totale(Materia materia)
         {
-            return 0;
+            base.Costo_Totale(materia);
         }
+        
     }
 }

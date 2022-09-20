@@ -8,25 +8,35 @@ namespace Calcola_Scelta_Macchinario
 {
     class Macchinario
     {
-        protected double rendimento, costo_Iniziale, consumo;
+        protected double rendimento, costo_tot, consumo , prezzo;
 
-        public Macchinario()
+        public Macchinario(double rendimento, double prezzo , double consumo , double costo_tot)
         {
+            this.rendimento = rendimento;
+            this.prezzo = prezzo;
+            consumo = 0;
+            costo_tot = 0;
         }
 
-        public virtual void Calcola_Consumo(double elettricita_utilizzata, double gas_consumato)
+        public virtual void Calcola_Consumo(double elettricita_utilizzata, double gas_consumato, double potere_calorifero)
         {
             consumo = 0;
         }
 
-        public virtual double Costo_Totale(Materia materia)
+        public virtual void Costo_Totale(Materia materia)
         {
-            double costo_Totale = materia.Costo_tot_bolletta(consumo) + costo_Iniziale;
-            return costo_Totale;
+            costo_tot = materia.Costo_tot_bolletta(consumo) + prezzo;
+
+        }
+        public virtual double GetPrezzo()
+        {
+            return prezzo;
         }
         public override string ToString()
         {
-            return base.ToString();
+            string frase = ($"{0} e' il rendimento, {1} e' il costo di installazione e della macchina", rendimento + costo_tot);
+            return (frase);
         }
+        
     }
 }

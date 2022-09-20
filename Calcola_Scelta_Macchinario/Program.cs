@@ -8,7 +8,7 @@ namespace Calcola_Scelta_Macchinario
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            
             using var watcher = new FileSystemWatcher("");
             watcher.Filter = "output.json";
 
@@ -21,7 +21,7 @@ namespace Calcola_Scelta_Macchinario
         private static void Onchanged(object sender, FileSystemEventArgs e)
         {
             var text = File.ReadAllText("output.json");
-            JsonConverter jsonstring = JsonConvert.DeserializeObject<JsonConvert>(text);
+            //JsonConverter jsonstring = JsonConvert.DeserializeObject<JsonConvert>(text);
         }
     }
 }
