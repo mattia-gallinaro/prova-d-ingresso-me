@@ -18,11 +18,11 @@ namespace Calcola_Scelta_Macchinario
 
         public override void Calcola_Consumo(double elettricita_utilizzata, double gas_consumato , double potere_calorifero)
         {
-            consumo = (gas_consumato * potere_calorifero / rendimento);
+            consumo = (gas_consumato * potere_calorifero / rendimento) + elettricita_utilizzata;
         }
-        public override void Costo_Totale(Materia materia)
+        public override void Costo_Totale(Bolletta elettricita)
         {
-            base.Costo_Totale(materia);           
+            base.Costo_Totale(elettricita);           
         }
     }
 }

@@ -21,9 +21,9 @@ namespace Calcola_Scelta_Macchinario
         {
             consumo = kWh / (potere_calorifero * rendimento) + Smc;
         }
-        public override void Costo_Totale(Materia materia)
+        public override void Costo_Totale(Bolletta gas)
         {
-            base.Costo_Totale(materia);
+            base.Costo_Totale(gas);
         }
         
     }

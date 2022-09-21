@@ -23,9 +23,9 @@ namespace Calcola_Scelta_Macchinario
             consumo = 0;
         }
 
-        public virtual void Costo_Totale(Materia materia)
+        public virtual void Costo_Totale(Bolletta bolletta)
         {
-            costo_tot = materia.Costo_tot_bolletta(consumo) + prezzo;
+            costo_tot = bolletta.Costo_tot_bolletta(consumo) + prezzo;
 
         }
         public virtual double GetPrezzo()
