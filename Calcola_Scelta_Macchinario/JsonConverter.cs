@@ -17,5 +17,9 @@ namespace Calcola_Scelta_Macchinario
             this.Smc = Smc;
             this.selezione = selezione;
         }
+        public override string ToString()
+        {
+            return "";
+        }
     }
 }

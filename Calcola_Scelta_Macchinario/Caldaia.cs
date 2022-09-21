@@ -9,10 +9,10 @@ namespace Calcola_Scelta_Macchinario
     class Caldaia :  Macchinario
     {
         //public 
-        public Caldaia(double rendimento, double costo_Iniziale, double prezzo, double costo_tot)
+        public Caldaia(double rendimento, double costo_Iniziale) : base(rendimento, costo_Iniziale)
         {
             this.rendimento = rendimento;
-            this.prezzo = costo_Iniziale;
+            prezzo = costo_Iniziale;
             consumo = 0;
             costo_tot = 0;
         }

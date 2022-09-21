@@ -8,7 +8,7 @@ namespace Calcola_Scelta_Macchinario
 {
     class Elettrico : Macchinario
     {
-        public Elettrico(double rendimento, double costo_init)
+        public Elettrico(double rendimento, double costo_init) : base(rendimento, costo_init)
         {
             this.rendimento = rendimento;
             prezzo = costo_init;

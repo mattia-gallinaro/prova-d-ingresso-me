@@ -20,7 +20,23 @@ namespace Calcola_Scelta_Macchinario
         }
         private static void Onchanged(object sender, FileSystemEventArgs e)
         {
-            var text = File.ReadAllText("output.json");
+            string text = File.ReadAllText("output.json");
+            JsonConverter jsonConvert;
+            try
+            {
+                jsonConvert = JsonConvert.DeserializeObject<JsonConverter>(text);
+                if(jsonConvert == null)
+                {
+                    Console.WriteLine("Non ho trovato nulla");
+                    throw new ArgumentNullException(" Accade ");
+                }
+            }
+            catch
+            {
+                Console.WriteLine("Impossibile convertire il json");
+            }
+            
+            
             //JsonConverter jsonstring = JsonConvert.DeserializeObject<JsonConvert>(text);
         }
     }

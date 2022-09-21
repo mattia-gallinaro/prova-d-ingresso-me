@@ -10,7 +10,7 @@ namespace Calcola_Scelta_Macchinario
     {
         protected double rendimento, costo_tot, consumo , prezzo;
 
-        public Macchinario(double rendimento, double prezzo , double consumo , double costo_tot)
+        public Macchinario(double rendimento, double prezzo)
         {
             this.rendimento = rendimento;
             this.prezzo = prezzo;
@@ -34,7 +34,7 @@ namespace Calcola_Scelta_Macchinario
         }
         public override string ToString()
         {
-            string frase = ($"{0} e' il rendimento, {1} e' il costo di installazione e della macchina", rendimento + costo_tot);
+            string frase =  rendimento + " e' il rendimento," + prezzo + " e' il costo di installazione e della macchina";
             return (frase);
         }
         
