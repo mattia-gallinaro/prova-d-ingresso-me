@@ -10,7 +10,7 @@ namespace Calcola_Scelta_Macchinario
     {
         protected int selezione;
         protected double kWh, Smc;
-        public Scelta(int selezione)
+        public Scelta(double kWh, double Smc, int selezione)
         {
             this.selezione = selezione;
         }
@@ -22,6 +22,20 @@ namespace Calcola_Scelta_Macchinario
             Elettrico stufa = new Elettrico(1, (600 + 250));
             Elettrico pompa_buonlv = new Elettrico(3.6, (3000 + 250));
             Elettrico pompa_cheap = new Elettrico(2.8, (1000 + 250));
+
+            List<object> list = new List<object>() { caldaia_cond, caldaia_trad, stufa, pompa_buonlv, pompa_cheap };
+            foreach(object p in list)
+            {
+                Console.WriteLine(p.GetType());
+                if(p.GetType() == typeof(Caldaia))
+                {
+                    Console.WriteLine("sono una caldaia");
+                }
+                else
+                {
+                    Console.WriteLine("sono un macchinario elettrico");
+                }
+            }
 
 
         }

@@ -9,6 +9,7 @@ namespace Calcola_Scelta_Macchinario
     class Macchinario
     {
         protected double rendimento, costo_tot, consumo , prezzo;
+        protected bool selezionato;
 
         public Macchinario(double rendimento, double prezzo)
         {
@@ -16,6 +17,7 @@ namespace Calcola_Scelta_Macchinario
             this.prezzo = prezzo;
             consumo = 0;
             costo_tot = 0;
+            selezionato = false;
         }
 
         public virtual void Calcola_Consumo(double elettricita_utilizzata, double gas_consumato, double potere_calorifero)
