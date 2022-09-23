@@ -32,7 +32,7 @@ namespace Test
                 string risposta = Console.ReadLine();
                 controllo = Int32.TryParse(risposta, out selezione);
 
-            } while (!controllo && selezione > 5 && selezione < 1);
+            } while (!controllo || selezione > 5 || selezione < 1);
 
             scelta = new Scelta(kwh, smc, (selezione -1));
             scelta.Scelta_Macchinario();

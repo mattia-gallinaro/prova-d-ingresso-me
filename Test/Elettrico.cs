@@ -6,7 +6,7 @@ namespace Test
 {
     class Elettrico : Macchinario 
     {
-        public Elettrico(double rendimento, double costo_init, string tipo) : base(rendimento, costo_init, tipo)
+        public Elettrico(double rendimento, double costo_init) : base(rendimento, costo_init)
         {
             
         }

@@ -8,12 +8,10 @@ namespace Test
     {
         protected double rendimento, costo_tot, consumo, prezzo, costo_Annuale;
         protected bool selezionato;
-        protected string tipo;
-        public Macchinario(double rendimento, double prezzo, string tipo)
+        public Macchinario(double rendimento, double prezzo)
         {
             this.rendimento = rendimento;
             this.prezzo = prezzo;
-            this.tipo = tipo;
             consumo = 0;
             costo_tot = 0;
             costo_Annuale = 0;
@@ -40,10 +38,6 @@ namespace Test
         {
             return Convert.ToString(consumo);
         }
-        public virtual string GetTipoConsumo()
-        {
-            return tipo;
-        }
         public virtual double GetPrezzo()
         {
             return prezzo;
@@ -55,6 +49,10 @@ namespace Test
         public bool GetSelezionato()
         {
             return selezionato;
+        }
+        public double costoAnnuale(int anni)
+        {
+            return (this.costo_Annuale * anni + this.prezzo);
         }
         public override string ToString()
         {
