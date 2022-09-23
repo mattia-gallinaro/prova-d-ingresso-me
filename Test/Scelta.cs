@@ -5,6 +5,16 @@ using System.Text;
 
 namespace Test
 {
+    class Lista
+    {
+        public readonly int posizione;
+        public readonly double costo;
+        public Lista(double costo, int posizione)
+        {
+            this.costo = costo;
+            this.posizione = posizione;
+        }
+    }
     class Scelta
     {
         protected int selezione;
@@ -24,8 +34,8 @@ namespace Test
         }
         public void Scelta_Macchinario()
         {
-            
             List<Macchinario> macchinario= new List<Macchinario>() { caldaia_cond, caldaia_trad, stufa, pompa_buonlv, pompa_cheap };
+            List<Lista> prezzo = new List<Lista>();
             macchinario[selezione].SetSelezionato();
             foreach (Macchinario p in macchinario)
             {
@@ -46,19 +56,17 @@ namespace Test
                     //Console.WriteLine("Sono un macchinario elettrico");
                 }
                 Console.WriteLine(p.GetCostoTotale());
+                prezzo.Add(new Lista(p.costoAnnuale(1), prezzo.Count()));
             }
 
-            ControllaLista(macchinario);
-
+            ControllaLista(ref prezzo);
+            
         }
 
-        public void ControllaLista(List<Macchinario> macchinario)
+        public void ControllaLista(ref List<Lista> prezzi)
         {
-            List<Macchinario> classifica = (List<Macchinario>)macchinario.OrderBy(Macchinario => Macchinario.GetCostoTotale());
-            if (classifica[0].GetSelezionato())
-            {
-
-            }
+            //List<Macchinario> classifica = (List<Macchinario>)macchinario.OrderBy(Macchinario => Macchinario.GetCostoTotale());
+            prezzi.OrderBy(prezzi => prezzi.costo);
         }
     }
 }
