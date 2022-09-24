@@ -35,8 +35,8 @@ namespace Test
             } while (!controllo || selezione > 5 || selezione < 1);
 
             scelta = new Scelta(kwh, smc, (selezione -1));
-            scelta.Scelta_Macchinario();
-
+            string frase = scelta.Scelta_Macchinario();
+            Console.WriteLine(frase);
             Console.WriteLine("Premi un tasto per uscire");
             Console.ReadKey();
         }

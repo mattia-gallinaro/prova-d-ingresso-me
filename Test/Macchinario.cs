@@ -8,7 +8,8 @@ namespace Test
     {
         protected double rendimento, costo_tot, consumo, prezzo, costo_Annuale;
         protected bool selezionato;
-        public Macchinario(double rendimento, double prezzo)
+        protected string nome;
+        public Macchinario(double rendimento, double prezzo, string nome)
         {
             this.rendimento = rendimento;
             this.prezzo = prezzo;
@@ -16,6 +17,7 @@ namespace Test
             costo_tot = 0;
             costo_Annuale = 0;
             selezionato = false;
+            this.nome = nome;
         }
 
         public virtual void Calcola_Consumo(double elettricita_utilizzata, double gas_consumato, double potere_calorifero)
@@ -53,6 +55,10 @@ namespace Test
         public double costoAnnuale(int anni)
         {
             return (this.costo_Annuale * anni + this.prezzo);
+        }
+        public string GetNome()
+        {
+            return this.nome;
         }
         public override string ToString()
         {

@@ -6,7 +6,7 @@ namespace Test
 {
     class Caldaia : Macchinario
     {
-        public Caldaia(double rendimento, double costo_Iniziale) : base(rendimento, costo_Iniziale)
+        public Caldaia(double rendimento, double costo_Iniziale, string nome) : base(rendimento, costo_Iniziale, nome)
         {
             
         }
