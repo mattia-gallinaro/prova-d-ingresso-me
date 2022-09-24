@@ -8,6 +8,7 @@ namespace Test
 {
     class Lista_Prezzi
     {
+        //variabili 
         protected int posizione;
         protected double costo;
         public Lista_Prezzi(double costo, int posizione)
@@ -49,20 +50,14 @@ namespace Test
             macchinario[selezione].SetSelezionato();
             foreach (Macchinario p in macchinario)
             {
-
                 p.Calcola_Consumo(kWh, Smc, 10.7);
-                
-                //Console.WriteLine(p.GetConsumo());
                 if (Convert.ToString(p.GetType()) == "Test.Caldaia")
                 {
                     p.Costo_Totale(gas);
-                    
-                    //Console.WriteLine("sono una caldaia");
                 }
                 else
                 {
                     p.Costo_Totale(luce);
-                    //Console.WriteLine("Sono un macchinario elettrico");
                 }
                 
             }
