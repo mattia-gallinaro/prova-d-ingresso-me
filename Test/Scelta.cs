@@ -6,11 +6,11 @@ using System.Text;
 
 namespace Test
 {
-    class Lista
+    class Lista_Prezzi
     {
         protected int posizione;
         protected double costo;
-        public Lista(double costo, int posizione)
+        public Lista_Prezzi(double costo, int posizione)
         {
             this.costo = costo;
             this.posizione = posizione;
@@ -44,12 +44,11 @@ namespace Test
         public string Scelta_Macchinario()
         {
             List<Macchinario> macchinario= new List<Macchinario>() { caldaia_condensazione, caldaia_tradizionale, stufa, pompa_buon_livello, pompa_economica };
-            List<Lista> prezzo = new List<Lista>();
+            
             string risposta = "";
             macchinario[selezione].SetSelezionato();
             foreach (Macchinario p in macchinario)
             {
-                Console.WriteLine("Macchina " + p.GetType());
 
                 p.Calcola_Consumo(kWh, Smc, 10.7);
                 
@@ -65,25 +64,37 @@ namespace Test
                     p.Costo_Totale(luce);
                     //Console.WriteLine("Sono un macchinario elettrico");
                 }
-                Console.WriteLine(p.GetCostoTotale());
-                prezzo.Add(new Lista(p.costoAnnuale(1), prezzo.Count()));
-                Console.WriteLine(prezzo[prezzo.Count() - 1].GetCosto());
                 
             }
 
-            List<Lista> prezzi_ord = prezzo.OrderBy(p => p.GetCosto()).ToList<Lista>();
-            foreach(Lista p in prezzi_ord)
+            risposta += Controllo_Anni(ref macchinario, 1);
+            risposta += Controllo_Anni(ref macchinario, 3);
+            risposta += Controllo_Anni(ref macchinario, 5);
+
+            return risposta;
+
+        }
+        public string Controllo_Anni(ref List<Macchinario> macchinario,  int anni)
+        {
+            string risposta = "";
+            List<Lista_Prezzi> prezzo = new List<Lista_Prezzi>();
+            foreach(Macchinario p in macchinario)
+            {
+                prezzo.Add(new Lista_Prezzi(p.CostoAnnuale(anni), prezzo.Count()));
+            }
+            List<Lista_Prezzi> prezzi_ord = prezzo.OrderBy(p => p.GetCosto()).ToList<Lista_Prezzi>();
+            foreach (Lista_Prezzi p in prezzi_ord)
             {
                 Console.WriteLine(p.GetCosto());
                 Console.WriteLine(p.GetPosizione());
             }
-            if(macchinario[prezzi_ord[0].GetPosizione()].GetSelezionato())
+            if (macchinario[prezzi_ord[0].GetPosizione()].GetSelezionato())
             {
-                risposta += "Per il 1^ anno il tuo macchinario e' quello piu' conveniente";
+                risposta += "\nPer il "+ anni+"^ anno il tuo macchinario e' quello piu' conveniente\n";
             }
             else
             {
-                risposta += "Per il 1^ anno il miglior macchinario e': " + macchinario[prezzi_ord[0].GetPosizione()].GetNome() + " con un risparmio di: " +macchinario[selezione].GetNome();
+                risposta += "\nPer il " +anni+"^ anno il miglior macchinario e': " + macchinario[prezzi_ord[0].GetPosizione()].GetNome() + " con un risparmio di: " + Math.Round(macchinario[selezione].CostoAnnuale(anni) - prezzi_ord[0].GetCosto(), 2) + "euro sulla " + macchinario[selezione].GetNome()+ "\n";
             }
             return risposta;
         }

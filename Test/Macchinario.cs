@@ -52,7 +52,7 @@ namespace Test
         {
             return selezionato;
         }
-        public double costoAnnuale(int anni)
+        public double CostoAnnuale(int anni)
         {
             return (this.costo_Annuale * anni + this.prezzo);
         }

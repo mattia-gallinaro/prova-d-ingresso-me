@@ -6,11 +6,10 @@ namespace Test
 {
     class Bolletta
     {
-        //costi fissi
+        //variabili che indicano i costi fissi per le bollette del gas e della luce
         protected internal double quota_fissa, spesa_tp_gc;
         //costi all'unitá
         protected internal double costo_per_unita, costo_tp_gc_unita, oneri;
-        //protected double 
 
         public Bolletta(double costo_per_unita, double quota_fissa, double spesa_tp_gc, double costo_tp_gc_unita, double oneri)
         {
