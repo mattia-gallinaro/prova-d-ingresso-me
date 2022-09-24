@@ -45,8 +45,8 @@ namespace Test
             Elettrico stufa = new Elettrico(1, (600 + 250), "Stufa elettrica");
             Elettrico pompa_buon_livello = new Elettrico(3.6, (3000 + 250), "Pompa di calore costosa");
             Elettrico pompa_economica = new Elettrico(2.8, (1000 + 250), "Pompa di calore economica");
-            Bolletta gas = new Bolletta(1.08, 5.228, 60, 0.113, 0.0347);
-            Bolletta luce = new Bolletta(0.276, 5.98, 20.28, 0.00798, 0.036);
+            Bolletta gas = new Bolletta(1.08, 5.228, 60, 0.113, 0.0347, 0.007496);
+            Bolletta luce = new Bolletta(0.276, 5.98, 20.28, 0.00798, 0.036, 0);
 
             //lista di macchinari in cui assegna le varie istanze prima create per poi calcolarne il consumo e costo sia totale che annuale di ciascuna
             List<Macchinario> macchinario= new List<Macchinario>() { caldaia_condensazione, caldaia_tradizionale, stufa, pompa_buon_livello, pompa_economica };
