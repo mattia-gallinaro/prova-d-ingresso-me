@@ -23,7 +23,7 @@ namespace Test
 
         public double Costo_tot_bolletta(double consumo)//calcola il prezzo in base al consumo della macchina e il valore delle variabili
         {
-            double costo = costo_per_unita * consumo + quota_vendita_unitá * consumo + quota_fissa * 12 + (spesa_tp_gc + costo_tp_gc_unita*consumo) + oneri * consumo;
+            double costo = costo_per_unita * consumo + quota_vendita_unitá * consumo + quota_fissa * 12 + (spesa_tp_gc + costo_tp_gc_unita * consumo) + oneri * consumo;//calcola quanto costa la bolletta annualmente in base al consumo del macchinario
             return costo;
         }
     }

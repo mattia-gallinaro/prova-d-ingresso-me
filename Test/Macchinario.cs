@@ -10,7 +10,7 @@ namespace Test
         protected double rendimento, costo_tot, consumo, prezzo, costo_Annuale;
         protected bool selezionato;
         protected string nome;
-        public Macchinario(double rendimento, double prezzo, string nome)
+        public Macchinario(double rendimento, double prezzo, string nome)//costruttore della classe Macchinario
         {
             this.rendimento = rendimento;
             this.prezzo = prezzo;
@@ -33,7 +33,7 @@ namespace Test
 
         }
 
-        public void SetSelezionato()//funzione per settare il valore di selezionato a true, che sta ad indicare che l'utente utilizza quel macchinario
+        public void SetSelezionato()//funzione per settare il valore di selezionato a true, che sta ad indicare che l'utente ha scelto quel macchinario
         {
             selezionato = true;
         }
